@@ -1,7 +1,6 @@
 package com.prasad.abbreviationsfinder.repository
 
 import com.prasad.abbreviationsfinder.model.AcronymData
-import com.prasad.abbreviationsfinder.model.Dictionary
 import com.prasad.abbreviationsfinder.retrofit.api.AbbreviationApiInterface
 import javax.inject.Inject
 

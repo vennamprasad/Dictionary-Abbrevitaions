@@ -15,7 +15,7 @@ import org.mockito.MockitoAnnotations
 import retrofit2.Response
 
 @RunWith(JUnit4::class)
-class MainRepositoryTest {
+class AbbreviationsRepositoryTest {
 
     private lateinit var abbreviationRepository: AbbreviationRepository
 
