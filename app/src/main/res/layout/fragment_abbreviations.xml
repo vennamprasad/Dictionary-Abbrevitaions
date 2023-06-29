@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.prasad.abbreviationsfinder.view.ui.acronyms.AbbreviationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/dp20"
+        tools:context=".view.AbbreviationActivity">
+
+        <ProgressBar
+            android:id="@+id/progressDialog"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:indeterminateTint="@color/black"
+            android:visibility="@{viewmodel.loading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/abbEditText"
+            android:layout_width="match_parent"
+            android:paddingHorizontal="@dimen/dp20"
+            android:layout_height="?actionBarSize"
+            android:imeOptions="actionSearch"
+            android:imeActionLabel="@string/search"
+            android:background="@drawable/text_bg"
+            android:hint="@string/hint"
+            android:inputType="textCapWords"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/search_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/search"
+            android:textAllCaps="false"
+            android:layout_marginTop="@dimen/dp20"
+            app:layout_constraintStart_toStartOf="@+id/abbEditText"
+            app:layout_constraintTop_toBottomOf="@+id/abbEditText" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/reset_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp20"
+            android:onClick="onClick"
+            android:text="@string/reset"
+            android:textAllCaps="false"
+            app:layout_constraintStart_toEndOf="@+id/search_btn"
+            app:layout_constraintTop_toTopOf="@+id/search_btn" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            android:layout_marginTop="@dimen/dp10"
+            android:visibility="@{viewmodel.rvVisibility}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_btn"
+            tools:listitem="@layout/rv_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

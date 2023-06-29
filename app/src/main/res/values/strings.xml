@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Dictionary-Abbreviations</string>
+    <string name="hint">Enter Abbreviation</string>
+    <string name="search">Search</string>
+    <string name="reset">Clear</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="dictionary">Dictionary</string>
+    <string name="acronyms">Acronyms</string>
+    <string name="enter_word_for_meaning">Enter Word for Meanings</string>
+    <string name="meaning">Meanings</string>
+</resources>

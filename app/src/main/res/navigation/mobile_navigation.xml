@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dictionary">
+
+    <fragment
+        android:id="@+id/navigation_dictionary"
+        android:name="com.prasad.abbreviationsfinder.view.ui.dictionary.DictionaryFragment"
+        android:label="@string/dictionary"
+        tools:layout="@layout/fragment_dictionary" />
+
+    <fragment
+        android:id="@+id/navigation_abbreviations"
+        android:name="com.prasad.abbreviationsfinder.view.ui.acronyms.AbbreviationFragment"
+        android:label="@string/acronyms"
+        tools:layout="@layout/fragment_abbreviations" />
+</navigation>
