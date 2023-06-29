@@ -16,5 +16,9 @@ This app can be used to get the list of Meanings/Largeforms for Abbreviation/Sho
 5. It uses Retrofit for network API call.
 
 ## Demo :
+[Image1] (https://github.com/vennamprasad/Dictionary-Abbrevitaions/blob/main/Screenshot_20230629_125355.png)
+[Image2] (https://github.com/vennamprasad/Dictionary-Abbrevitaions/blob/main/Screenshot_20230629_125442.png)
+[Image3] (https://github.com/vennamprasad/Dictionary-Abbrevitaions/blob/main/Screenshot_20230629_125510.png)
 
-[Output.webm](https://github.com/vennamprasad/Dictionary-Abbrevitaions/blob/main/app/tcs-task-for-albertsons-account.webm)
+#GIF
+![](https://github.com/vennamprasad/Dictionary-Abbrevitaions/blob/main/app/tcs-task-for-albertsons-account.webm)
