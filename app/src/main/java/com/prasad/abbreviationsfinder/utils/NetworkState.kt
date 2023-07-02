@@ -1,4 +1,4 @@
-package com.prasad.abbreviationsfinder.repository
+package com.prasad.abbreviationsfinder.utils
 
 import retrofit2.Response
 

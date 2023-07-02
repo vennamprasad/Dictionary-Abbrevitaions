@@ -8,20 +8,29 @@ import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
+import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.android.material.snackbar.Snackbar
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import com.prasad.abbreviationsfinder.databinding.FragmentDictionaryBinding
+import com.prasad.abbreviationsfinder.db.entity.BookmarkEntity
 import com.prasad.abbreviationsfinder.utils.ValidationUtil
-import com.prasad.abbreviationsfinder.view.RecyclerViewListAdapter
+import com.prasad.abbreviationsfinder.utils.ValidationUtil.EMPTY_WORD_MESSAGE
+import com.prasad.abbreviationsfinder.utils.ValidationUtil.RESPONSE_ERROR_MESSAGE
+import com.prasad.abbreviationsfinder.view.adpter.CommonListAdapter
+import com.prasad.abbreviationsfinder.view.ui.bookmark.BookmarkViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class DictionaryFragment : Fragment() {
 
     private var _binding: FragmentDictionaryBinding? = null
-    private val adapter = RecyclerViewListAdapter()
+    private val adapter = CommonListAdapter()
     private val dictionaryViewModel by viewModels<DictionaryViewModel>()
+    private val bookmarkViewModel by viewModels<BookmarkViewModel>()
+    private val bookmarkData = ArrayList<String>()
+
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
@@ -38,6 +47,8 @@ class DictionaryFragment : Fragment() {
 
         dictionaryViewModel.meaningsList.observe(requireActivity()) {
             adapter.setList(it)
+            bookmarkData.clear()
+            bookmarkData.addAll(it)
             dictionaryViewModel.rvVisibility.postValue(View.VISIBLE)
         }
 
@@ -46,6 +57,9 @@ class DictionaryFragment : Fragment() {
             DynamicToast.makeError(requireContext(), it.toString()).show()
         }
 
+        binding.abbEditText.doAfterTextChanged {
+            dictionaryViewModel.rvVisibility.postValue(View.GONE)
+        }
         binding.abbEditText.setOnEditorActionListener { _, actionId, _ ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 performSearch()
@@ -53,8 +67,19 @@ class DictionaryFragment : Fragment() {
             true
         }
 
+
         binding.searchBtn.setOnClickListener {
             performSearch()
+        }
+        binding.bookMark.setOnClickListener {
+            if (bookmarkData.isNotEmpty() && binding.abbEditText.text.toString().isNotEmpty()) {
+                performBookmark(binding.abbEditText.text.toString())
+            } else {
+                DynamicToast.makeWarning(
+                    requireContext(),
+                    "$RESPONSE_ERROR_MESSAGE or $EMPTY_WORD_MESSAGE"
+                ).show()
+            }
         }
 
         binding.resetBtn.setOnClickListener {
@@ -64,6 +89,10 @@ class DictionaryFragment : Fragment() {
         return binding.root
     }
 
+    private fun performBookmark(word: String) {
+        bookmarkViewModel.insertBookmark(BookmarkEntity(word = word, meanings = bookmarkData))
+        Snackbar.make(binding.root, "Bookmark Saved ", Snackbar.LENGTH_LONG).show()
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

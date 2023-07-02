@@ -1,7 +1,8 @@
 package com.prasad.abbreviationsfinder.repository
 
 import com.prasad.abbreviationsfinder.model.AcronymData
-import com.prasad.abbreviationsfinder.retrofit.api.AbbreviationApiInterface
+import com.prasad.abbreviationsfinder.api.network.AbbreviationApiInterface
+import com.prasad.abbreviationsfinder.utils.NetworkState
 import javax.inject.Inject
 
 /**
@@ -10,7 +11,6 @@ import javax.inject.Inject
 class AbbreviationRepository @Inject constructor(
     private val abbreviationApiInterface: AbbreviationApiInterface
 ) {
-
     suspend fun getMeaningsData(sortForm: String): NetworkState<AcronymData> {
         val response = abbreviationApiInterface.getAcronyms(sortForm)
         return if (response.isSuccessful) {

@@ -1,4 +1,4 @@
-package com.prasad.abbreviationsfinder.retrofit.api
+package com.prasad.abbreviationsfinder.api.network
 
 import com.prasad.abbreviationsfinder.model.AcronymData
 import okhttp3.OkHttpClient
@@ -14,17 +14,13 @@ import retrofit2.http.Query
  * It also declares GET API to fetch full form response for the sort form provided by user.
  */
 interface AbbreviationApiInterface {
-
-
     @GET("software/acromine/dictionary.py")
     suspend fun getAcronyms(@Query("sf") query: String) : Response<AcronymData>
-
     companion object {
         private const val BASE_URL = "http://www.nactem.ac.uk/"
         private var retrofitService: AbbreviationApiInterface? = null
         fun getInstance(): AbbreviationApiInterface {
-            val client = OkHttpClient.Builder()
-                .build()
+            val client = OkHttpClient.Builder().build()
             if (retrofitService == null) {
                 val retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)

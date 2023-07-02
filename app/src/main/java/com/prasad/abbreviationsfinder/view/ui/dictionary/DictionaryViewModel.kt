@@ -7,7 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prasad.abbreviationsfinder.model.Dictionary
 import com.prasad.abbreviationsfinder.repository.DictionaryRepository
-import com.prasad.abbreviationsfinder.repository.NetworkState
+import com.prasad.abbreviationsfinder.repository.local.DBRepository
+import com.prasad.abbreviationsfinder.utils.NetworkState
 import com.prasad.abbreviationsfinder.utils.ValidationUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -24,6 +25,7 @@ class DictionaryViewModel @Inject constructor(
     val errorMessage: LiveData<String> get() = _errorMessage
     val meaningsList = MutableLiveData<List<String>>()
     val loading = MutableLiveData(View.GONE)
+    val word  =  MutableLiveData("")
     val rvVisibility = MutableLiveData(View.GONE)
 
     //API call to fetch meanings data for sortForm provided by user.
@@ -57,6 +59,7 @@ class DictionaryViewModel @Inject constructor(
                 tempLfArrayList.add(def.definition.toString())
             }
             meaningsList.postValue(tempLfArrayList)
+            word.postValue(dictionary[0].word)
         } else {
             onError(ValidationUtil.RESPONSE_ERROR_MESSAGE)
         }

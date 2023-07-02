@@ -1,9 +1,7 @@
-package com.prasad.abbreviationsfinder.retrofit.api
+package com.prasad.abbreviationsfinder.api.network
 
-import com.prasad.abbreviationsfinder.model.AcronymData
 import com.prasad.abbreviationsfinder.model.Dictionary
 import okhttp3.OkHttpClient
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -15,11 +13,8 @@ import retrofit2.http.Path
  * It also declares GET API to fetch full meaning response for the sort provided by user.
  */
 interface DictionaryApiInterface {
-
-
     @GET("v2/entries/en/{word}")
     suspend fun getDictionary( @Path("word") word: String?) : Response<List<Dictionary>>
-
     companion object {
         private const val BASE_URL = "https://api.dictionaryapi.dev/api/"
         private var retrofitService: DictionaryApiInterface? = null

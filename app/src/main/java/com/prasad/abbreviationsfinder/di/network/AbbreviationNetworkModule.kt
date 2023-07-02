@@ -1,9 +1,7 @@
-package com.prasad.abbreviationsfinder.di
+package com.prasad.abbreviationsfinder.di.network
 
 import com.prasad.abbreviationsfinder.repository.AbbreviationRepository
-import com.prasad.abbreviationsfinder.repository.DictionaryRepository
-import com.prasad.abbreviationsfinder.retrofit.api.AbbreviationApiInterface
-import com.prasad.abbreviationsfinder.retrofit.api.DictionaryApiInterface
+import com.prasad.abbreviationsfinder.api.network.AbbreviationApiInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,7 +11,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class AbbreviationNetworkModule {
-
     @Singleton
     @Provides
     fun provideAcronymServiceApi(): AbbreviationApiInterface {
@@ -24,7 +21,6 @@ class AbbreviationNetworkModule {
 @InstallIn(SingletonComponent::class)
 @Module
 class AcronymRepositoryModule {
-
     @Singleton
     @Provides
     fun provideAcronymRepository(abbreviationApiInterface: AbbreviationApiInterface): AbbreviationRepository {

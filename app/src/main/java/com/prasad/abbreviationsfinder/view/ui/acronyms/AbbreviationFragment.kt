@@ -13,7 +13,7 @@ import androidx.fragment.app.viewModels
 import com.pranavpandey.android.dynamic.toasts.DynamicToast
 import com.prasad.abbreviationsfinder.databinding.FragmentAbbreviationsBinding
 import com.prasad.abbreviationsfinder.utils.ValidationUtil
-import com.prasad.abbreviationsfinder.view.RecyclerViewListAdapter
+import com.prasad.abbreviationsfinder.view.adpter.CommonListAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,7 +21,7 @@ class AbbreviationFragment : Fragment() {
 
     private var _binding: FragmentAbbreviationsBinding? = null
     private val viewModel by viewModels<AbbreviationViewModel>()
-    private val adapter = RecyclerViewListAdapter()
+    private val adapter = CommonListAdapter()
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!

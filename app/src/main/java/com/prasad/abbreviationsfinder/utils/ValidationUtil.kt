@@ -7,13 +7,13 @@ object ValidationUtil {
     private const val SUCCESS_MESSAGE = "Success"
     private const val EMPTY_SF_MESSAGE = "Please provide valid abbreviation."
     private const val SINGLE_CHAR_SF_MESSAGE = "Abbreviation can't be single character."
-    private const val NON_ALPHABET_SF_MESSAGE = "Abbreviation can contain only alphabets."
+    private const val NON_ALPHABET_SF_MESSAGE = "Abbreviation can have only alphabets."
     const val NETWORK_ERROR_MESSAGE = "Please check Internet Connectivity."
     const val RESPONSE_ERROR_MESSAGE = "Response is null or empty."
 
-    private const val EMPTY_WORD_MESSAGE = "Please provide valid abbreviation."
-    private const val SINGLE_CHAR_MESSAGE = "Abbreviation can't be single character."
-    private const val NON_ALPHABET_WORD_MESSAGE = "Abbreviation can contain only alphabets."
+    const val EMPTY_WORD_MESSAGE = "Please provide valid WORD."
+    private const val SINGLE_CHAR_MESSAGE = "Word can't be single character."
+    private const val NON_ALPHABET_WORD_MESSAGE = "Word can have only alphabets."
 
     fun isValidShorForm(abbreviation: String): Pair<Boolean, String> {
         return if (abbreviation.isEmpty())

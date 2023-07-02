@@ -7,8 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prasad.abbreviationsfinder.model.AcronymData
 import com.prasad.abbreviationsfinder.repository.AbbreviationRepository
-import com.prasad.abbreviationsfinder.repository.NetworkState
-import com.prasad.abbreviationsfinder.retrofit.api.AbbreviationApiInterface
+import com.prasad.abbreviationsfinder.utils.NetworkState
 import com.prasad.abbreviationsfinder.utils.ValidationUtil
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

@@ -16,16 +16,6 @@
         android:padding="@dimen/dp20"
         tools:context=".view.AbbreviationActivity">
 
-        <ProgressBar
-            android:id="@+id/progressDialog"
-            android:layout_width="@dimen/dp50"
-            android:layout_height="@dimen/dp50"
-            android:indeterminateTint="@color/black"
-            android:visibility="@{viewmodel.loading}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/abbEditText"
@@ -55,32 +45,56 @@
             android:id="@+id/reset_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp20"
             android:onClick="onClick"
             android:text="@string/reset"
             android:textAllCaps="false"
+            app:layout_constraintEnd_toStartOf="@+id/book_mark"
             app:layout_constraintStart_toEndOf="@+id/search_btn"
             app:layout_constraintTop_toTopOf="@+id/search_btn" />
 
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/book_mark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"
+            android:text="@string/save"
+            android:visibility="@{viewmodel.rvVisibility}"
+            android:textAllCaps="false"
+            app:layout_constraintEnd_toEndOf="@+id/abbEditText"
+            app:layout_constraintTop_toTopOf="@+id/search_btn" />
+
+        <TextView
+            android:id="@+id/word"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dp10"
+            android:text="@{viewmodel.word}"
+            android:textColor="?colorPrimary"
+            android:textStyle="bold"
+            android:visibility="@{viewmodel.rvVisibility}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reset_btn" />
+
         <TextView
             android:id="@+id/textView"
-            android:layout_width="match_parent"
+            style="@style/TextAppearance.MaterialComponents.Headline5"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/dp10"
             android:text="@string/meaning"
             android:textColor="?colorPrimary"
             android:textStyle="bold"
             android:visibility="@{viewmodel.rvVisibility}"
-            style="@style/TextAppearance.MaterialComponents.Headline5"
-            android:paddingVertical="@dimen/dp10"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/word"
             app:layout_constraintTop_toBottomOf="@+id/reset_btn" />
+
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:scrollbars="vertical"
             android:visibility="@{viewmodel.rvVisibility}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -88,6 +102,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:listitem="@layout/rv_item" />
+
+        <ProgressBar
+            android:id="@+id/progressDialog"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            tools:visibility="gone"
+            android:indeterminateTint="@color/black"
+            android:visibility="@{viewmodel.loading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

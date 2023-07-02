@@ -1,9 +1,8 @@
 package com.prasad.abbreviationsfinder.repository
 
-import com.prasad.abbreviationsfinder.model.AcronymData
 import com.prasad.abbreviationsfinder.model.Dictionary
-import com.prasad.abbreviationsfinder.retrofit.api.AbbreviationApiInterface
-import com.prasad.abbreviationsfinder.retrofit.api.DictionaryApiInterface
+import com.prasad.abbreviationsfinder.api.network.DictionaryApiInterface
+import com.prasad.abbreviationsfinder.utils.NetworkState
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
 

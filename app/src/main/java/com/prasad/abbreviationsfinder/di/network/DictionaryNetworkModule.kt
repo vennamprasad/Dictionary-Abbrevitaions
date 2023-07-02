@@ -1,7 +1,7 @@
-package com.prasad.abbreviationsfinder.di
+package com.prasad.abbreviationsfinder.di.network
 
 import com.prasad.abbreviationsfinder.repository.DictionaryRepository
-import com.prasad.abbreviationsfinder.retrofit.api.DictionaryApiInterface
+import com.prasad.abbreviationsfinder.api.network.DictionaryApiInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -12,7 +12,6 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class DictionaryNetworkModule {
-
     @Singleton
     @Provides
     fun provideDictionaryServiceApi(): DictionaryApiInterface {
@@ -23,7 +22,6 @@ class DictionaryNetworkModule {
 @InstallIn(SingletonComponent::class)
 @Module
 class DictionaryRepositoryModule {
-
     @Singleton
     @Provides
     fun provideDictionaryRepository(dictionaryApiInterface: DictionaryApiInterface): DictionaryRepository {

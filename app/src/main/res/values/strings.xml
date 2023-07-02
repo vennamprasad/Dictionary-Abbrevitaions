@@ -10,5 +10,8 @@
     <string name="dictionary">Dictionary</string>
     <string name="acronyms">Acronyms</string>
     <string name="enter_word_for_meaning">Enter Word for Meanings</string>
-    <string name="meaning">Meanings</string>
+    <string name="meaning">: Meanings</string>
+    <string name="word">Word</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="save">Save</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.prasad.abbreviationsfinder.view
+package com.prasad.abbreviationsfinder.view.adpter
 
 import android.annotation.SuppressLint
 import android.graphics.Color
@@ -13,7 +13,7 @@ import java.util.Random
 /**
  * This is ListAdapter class to display list of large forms in recyclerview.
  */
-class RecyclerViewListAdapter : RecyclerView.Adapter<MainViewHolder>() {
+class CommonListAdapter : RecyclerView.Adapter<MainViewHolder>() {
 
     var mColors = arrayOf(
         "5E97F6",
