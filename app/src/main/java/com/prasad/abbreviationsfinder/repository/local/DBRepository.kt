@@ -14,7 +14,7 @@ class DBRepository @Inject constructor(private val appDatabase: AppDatabase) {
             .insertBookmark(dictionaryEntity)
     }
 
-    suspend fun delete(dictionaryEntity: BookmarkEntity) {
+    suspend fun delete(dictionaryEntity: String) {
         appDatabase.bookmarksDao().deleteBookmark(dictionaryEntity)
     }
 

@@ -20,5 +20,18 @@
         android:id="@+id/navigation_bookmarks"
         android:name="com.prasad.abbreviationsfinder.view.ui.bookmark.BookmarkFragment"
         android:label="@string/bookmarks"
-        tools:layout="@layout/fragment_bookmark" />
+        tools:layout="@layout/fragment_bookmark" >
+        <action
+            android:id="@+id/action_navigation_bookmarks_to_bookmarksInfoFragment"
+            app:destination="@id/navigation_bookmarksInfo" />
+    </fragment>
+    <dialog
+        android:id="@+id/navigation_bookmarksInfo"
+        android:name="com.prasad.abbreviationsfinder.view.ui.bookmark.BookmarksInfoFragment"
+        android:label="fragment_bookmarks_info_list_dialog"
+        tools:layout="@layout/fragment_bookmarks_info_list_dialog" >
+        <argument
+            android:name="bookmark"
+            app:argType="com.prasad.abbreviationsfinder.model.Bookmarks" />
+    </dialog>
 </navigation>

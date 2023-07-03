@@ -45,11 +45,6 @@ class CommonListAdapter : RecyclerView.Adapter<MainViewHolder>() {
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val result = resultList[position]
-        val i1: Int = Random().nextInt(11)
-        val draw = GradientDrawable()
-        draw.shape = GradientDrawable.RECTANGLE
-        draw.setColor(Color.parseColor("#" + mColors[i1]))
-        holder.binding.result.background = draw
         holder.binding.result.text = result
     }
 

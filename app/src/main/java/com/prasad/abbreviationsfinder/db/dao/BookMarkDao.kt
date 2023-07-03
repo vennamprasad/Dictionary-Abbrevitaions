@@ -18,6 +18,6 @@ interface BookMarkDao {
     @Query("SELECT count(word) FROM DICTIONARY where word = :word")
     fun getWordCount(word: String): LiveData<Int?>
 
-    @Delete
-    suspend fun deleteBookmark(dictionaryEntity: BookmarkEntity)
+    @Query("DELETE FROM DICTIONARY WHERE word = :dictionaryEntity")
+    suspend fun deleteBookmark(dictionaryEntity: String)
 }
