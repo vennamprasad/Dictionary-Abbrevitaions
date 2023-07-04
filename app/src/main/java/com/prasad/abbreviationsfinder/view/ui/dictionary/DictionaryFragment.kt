@@ -73,7 +73,7 @@ class DictionaryFragment : Fragment() {
         }
         binding.bookMark.setOnClickListener {
             if (bookmarkData.isNotEmpty() && binding.abbEditText.text.toString().isNotEmpty()) {
-                performBookmark(binding.abbEditText.text.toString())
+                performBookmark(binding.abbEditText.text.toString().lowercase().trim())
             } else {
                 DynamicToast.makeWarning(
                     requireContext(),

@@ -63,6 +63,11 @@ class BookmarkFragment : Fragment(), OnItemClickListener {
         return binding.root
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        DynamicToast.makeSuccess(requireContext(),"Swipe Left to Delete the Bookmark").show()
+    }
+
     override fun onItemClick(item: Bookmarks) {
         val direction =
             BookmarkFragmentDirections.actionNavigationBookmarksToBookmarksInfoFragment(item)
