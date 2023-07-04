@@ -39,7 +39,7 @@ class BookmarkFragment : Fragment(), OnItemClickListener {
         val swipeHandler = object : SwipeToDeleteCallback(requireContext()) {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val adapter = binding.recyclerview.adapter as BookmarkListAdapter
-                val removedWord = adapter.removeAt(viewHolder.adapterPosition)
+                val removedWord = adapter.removeAt(viewHolder.absoluteAdapterPosition)
                 DynamicToast.makeSuccess(requireContext(), "$removedWord Removed").show()
                 bookmarkViewModel.deleteBookmark(removedWord)
             }
