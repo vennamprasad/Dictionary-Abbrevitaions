@@ -1,7 +1,7 @@
 package com.prasad.abbreviationsfinder.repository
 
-import com.prasad.abbreviationsfinder.model.AcronymData
 import com.prasad.abbreviationsfinder.api.network.AbbreviationApiInterface
+import com.prasad.abbreviationsfinder.model.MeaningsData
 import com.prasad.abbreviationsfinder.utils.NetworkState
 import kotlinx.coroutines.runBlocking
 import org.junit.Assert.*
@@ -32,7 +32,7 @@ class AbbreviationsRepositoryTest {
     @Test
     fun `get meanings data test`() {
         runBlocking {
-            val acronymData = AcronymData()
+            val acronymData = MeaningsData()
             Mockito.`when`(abbreviationApiInterface.getAcronyms("sf")).thenReturn(
                 Response.success(acronymData)
             )

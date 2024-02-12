@@ -84,7 +84,6 @@
             android:layout_height="wrap_content"
             android:paddingVertical="@dimen/dp10"
             android:text="@string/meaning"
-            android:textColor="?colorPrimary"
             android:textStyle="bold"
             android:visibility="@{viewmodel.rvVisibility}"
             app:layout_constraintStart_toEndOf="@+id/word"

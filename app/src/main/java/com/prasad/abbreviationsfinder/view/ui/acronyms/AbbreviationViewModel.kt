@@ -1,11 +1,11 @@
 package com.prasad.abbreviationsfinder.view.ui.acronyms
 
+import com.prasad.abbreviationsfinder.model.MeaningsData
 import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.prasad.abbreviationsfinder.model.AcronymData
 import com.prasad.abbreviationsfinder.repository.AbbreviationRepository
 import com.prasad.abbreviationsfinder.utils.NetworkState
 import com.prasad.abbreviationsfinder.utils.ValidationUtil
@@ -53,11 +53,11 @@ class AbbreviationViewModel @Inject constructor(private val repo: AbbreviationRe
         }
     }
 
-    //Segregating large form list from MeaningsData response.
-    private fun getLargeFormsList(acronymData: AcronymData) {
-        if ((acronymData.isNotEmpty()) && (acronymData[0].longForms.isNotEmpty())) {
+    //Segregating large form list from com.prasad.abbreviationsfinder.model.MeaningsData response.
+    private fun getLargeFormsList(acronymData: MeaningsData) {
+        if ((acronymData.isNotEmpty()) && (acronymData[0].lfs.isNotEmpty())) {
             val tempLfArrayList = mutableListOf<String>()
-            for (lfItem in acronymData[0].longForms) {
+            for (lfItem in acronymData[0].lfs) {
                 tempLfArrayList.add(lfItem.lf)
             }
             largeFormList.postValue(tempLfArrayList)

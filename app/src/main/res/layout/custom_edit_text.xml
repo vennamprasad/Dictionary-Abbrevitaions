@@ -1,0 +1,45 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Search icon -->
+    <ImageView
+        android:id="@+id/searchIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_search_category_default"
+        android:padding="8dp"
+        android:layout_gravity="center_vertical"
+        android:importantForAccessibility="no" />
+
+    <!-- Edit text -->
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:hint="@string/search"
+        android:singleLine="true"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <!-- Clear icon -->
+    <ImageView
+        android:id="@+id/clearIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_notification_clear_all"
+        android:padding="8dp"
+        android:layout_gravity="center_vertical"
+        android:importantForAccessibility="no" />
+
+    <!-- Bookmark icon -->
+    <ImageView
+        android:id="@+id/bookmarkIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@android:drawable/ic_menu_save"
+        android:padding="8dp"
+        android:layout_gravity="center_vertical"
+        android:importantForAccessibility="no" />
+
+</merge>

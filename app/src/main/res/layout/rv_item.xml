@@ -21,10 +21,13 @@
             android:layout_height="wrap_content"
             android:gravity="center|start"
             android:padding="@dimen/dp10"
+            android:clickable="true"
             android:text="@string/meaning"
+            android:minHeight="?attr/actionBarSize"
             android:textColor="@color/black"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:focusable="true" />
 
     </com.google.android.material.card.MaterialCardView>
 

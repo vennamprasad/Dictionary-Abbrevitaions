@@ -51,7 +51,7 @@ class DictionaryViewModel @Inject constructor(
         }
     }
 
-    //Segregating large form list from MeaningsData response.
+    //Segregating large form list from com.prasad.abbreviationsfinder.model.MeaningsData response.
     private fun processData(dictionary: List<Dictionary>) {
         if (dictionary.isNotEmpty()) {
             val tempLfArrayList = mutableListOf<String>()

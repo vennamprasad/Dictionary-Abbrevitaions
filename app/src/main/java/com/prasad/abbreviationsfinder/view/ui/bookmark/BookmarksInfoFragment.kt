@@ -46,7 +46,7 @@ class BookmarksInfoFragment : BottomSheetDialogFragment() {
         _binding = FragmentBookmarksInfoListDialogBinding.inflate(inflater, container, false)
         val view = binding.root
         binding.recyclerview.adapter  = adapter
-        adapter.setList(args.bookmark.meanings)
+        adapter.setList(args.bookmark.meanings,requireContext())
         return view
     }
 

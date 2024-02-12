@@ -37,13 +37,13 @@ class AbbreviationFragment : Fragment() {
         binding.lifecycleOwner = this
 
         viewModel.largeFormList.observe(requireActivity()) {
-            adapter.setList(it)
+            adapter.setList(it,requireContext())
             viewModel.rvVisibility.postValue(View.VISIBLE)
         }
 
         viewModel.errorMessage.observe(requireActivity()) {
             viewModel.rvVisibility.postValue(View.GONE)
-            DynamicToast.makeError(requireContext(), it.toString()).show()
+            DynamicToast.makeError(requireContext(), "Technical Issues From Server").show()
         }
 
         binding.abbEditText.setOnEditorActionListener { _, actionId, _ ->

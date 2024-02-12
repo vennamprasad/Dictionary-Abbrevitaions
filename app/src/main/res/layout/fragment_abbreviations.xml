@@ -13,20 +13,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/dp20"
+        android:padding="@dimen/activity_horizontal_margin"
         tools:context=".view.AbbreviationActivity">
-
-        <ProgressBar
-            android:id="@+id/progressDialog"
-            android:layout_width="@dimen/dp50"
-            android:layout_height="@dimen/dp50"
-            android:indeterminateTint="@color/black"
-            android:visibility="@{viewmodel.loading}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/abbEditText"
             android:layout_width="match_parent"
@@ -73,6 +61,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/search_btn"
             tools:listitem="@layout/rv_item" />
+
+        <ProgressBar
+            android:id="@+id/progressDialog"
+            android:layout_width="@dimen/dp50"
+            android:layout_height="@dimen/dp50"
+            android:indeterminateTint="@color/black"
+            android:visibility="@{viewmodel.loading}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

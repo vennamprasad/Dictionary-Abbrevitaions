@@ -46,7 +46,7 @@ class DictionaryFragment : Fragment() {
         binding.lifecycleOwner = this
 
         dictionaryViewModel.meaningsList.observe(requireActivity()) {
-            adapter.setList(it)
+            adapter.setList(it,requireContext())
             bookmarkData.clear()
             bookmarkData.addAll(it)
             dictionaryViewModel.rvVisibility.postValue(View.VISIBLE)

@@ -1,13 +1,15 @@
 package com.prasad.abbreviationsfinder.view.adpter
 
 import android.annotation.SuppressLint
-import android.graphics.Color
-import android.graphics.drawable.GradientDrawable
+import android.content.ClipData
+import android.content.ClipboardManager
+import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.prasad.abbreviationsfinder.databinding.RvItemBinding
-import java.util.Random
 
 
 /**
@@ -15,25 +17,12 @@ import java.util.Random
  */
 class CommonListAdapter : RecyclerView.Adapter<MainViewHolder>() {
 
-    var mColors = arrayOf(
-        "5E97F6",
-        "9CCC65",
-        "FF8A65",
-        "9E9E9E",
-        "9FA8DA",
-        "90A4AE",
-        "AED581",
-        "F6BF26",
-        "FFA726",
-        "4DD0E1",
-        "BA68C8",
-        "A1887F"
-    )
     private var resultList = mutableListOf<String>()
-
+    var context: Context? = null
     @SuppressLint("NotifyDataSetChanged")
-    fun setList(lfs: List<String>) {
+    fun setList(lfs: List<String>,context: Context?) {
         this.resultList = lfs.toMutableList()
+        this.context = context
         notifyDataSetChanged()
     }
 
@@ -46,6 +35,14 @@ class CommonListAdapter : RecyclerView.Adapter<MainViewHolder>() {
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val result = resultList[position]
         holder.binding.result.text = result
+        holder.binding.result.setOnClickListener {
+            try {
+                context?.copyToClipboard(result)
+                Toast.makeText(holder.itemView.context, "$result copied to clipboard", Toast.LENGTH_LONG).show()
+            } catch (e: Exception) {
+                TODO("Not yet implemented")
+            }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -54,3 +51,9 @@ class CommonListAdapter : RecyclerView.Adapter<MainViewHolder>() {
 }
 
 class MainViewHolder(val binding: RvItemBinding) : RecyclerView.ViewHolder(binding.root)
+
+fun Context.copyToClipboard(text: CharSequence){
+    val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    val clip = ClipData.newPlainText("label",text)
+    clipboard.setPrimaryClip(clip)
+}
